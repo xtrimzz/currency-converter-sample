@@ -1,0 +1,89 @@
+
++c MainActivity -> AppCompatActivity
+
+	Delarations
+		TextView eur, usd, inr
+		- Bt btn, Edtxt et, Spn spin
+		- num index
+		- num inputVal
+		- string result[10]
+	
+	* onCreate():
+		get Id of the follow variables:
+		 eur, usd, inr, spin , btn
+		
+		populate the dropdown{spinner} values with string
+			Array adapter<>()...
+			
+		When button is Clicked
+			btn.onClickListner()...
+				setText usd, eur & inr -> "wait..."
+				if user did not input empty and . 
+					
+					get the inputed text
+					string textValue <- et.inputText
+					inputVal = textValue
+					
+					Execute the AsyncTask
+					new Calc.exec
+					
+	+c Calculate -> AsyncTask ...
+		
+		*doInBackground():
+			if index == 0
+				try 
+					url = getJson(for 'usd-eur' & 'usd-inr')
+					parse JsonData
+					result[0] = getRate0 #for usd-eur
+					result[1] = getRate1 #for usd-inr
+					
+			else if index == 1
+				try 
+					url = getJson(for 'eur-usd' & 'inr-usd')
+					parse JsonData
+					result[0] = getRate0 #for eur-usd
+					result[1] = getRate1 #for inr-usd
+					
+			else if index == 2
+				try 
+					url = getJson(for 'inr-usd' & 'inr-eur')
+					parse JsonData
+					result[0] = getRate0 #for inr-usd
+					result[1] = getRate1 #for inr-euro
+					
+		
+		*onPreExecute():
+		
+		*onPostExecute()
+			if index == 0:
+				usd2_usd_Inp = inputVal * 1
+				setText usd2_usd_Inp
+				
+				 usd2-euro-Inp = inputVal * result[0]
+				 setText usd2_euro_inp
+				 
+				 usd2_inr_inp = inputVal * result[1]
+				 setText usd2_inr_inp
+				 
+				 
+			else if index == 1:
+				euro2_eur_Inp = inputVal * 1
+                setText euro2_eur_Inp
+
+                
+                euro2_usd_Inp = inputValue * result[0]
+                setText euro2_usd_Inp
+
+                eurotoinrVal = Double.parseDouble(result[1]);
+                eurotoinrInp = inputValue * eurotoinrVal;
+                inr.setText(""+eurotoinrInp);
+				
+			else if index == 2:
+				
+			
+				
+			
+		
+		+ getJson() trows clientExceptn
+			- get the json magic "SPECIFIC TO JAVA"
+		

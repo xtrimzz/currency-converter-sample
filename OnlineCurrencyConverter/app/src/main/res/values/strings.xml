@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Online CurrencyConverter</string>
+    <string name="convert">convert</string>
+    <string name="zero">00</string>
+    <string name="usdtxt">USD</string>
+    <string name="eurtxt">EUR</string>
+    <string name="inrtxt">INR</string>
+
+    <string-array name="currency">
+        <item>USD</item>
+        <item>Euro</item>
+        <item>INR</item>
+    </string-array>
+</resources>
